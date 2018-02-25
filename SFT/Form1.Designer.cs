@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.graph = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // graph
+            // 
+            this.graph.Location = new System.Drawing.Point(12, 12);
+            this.graph.Name = "graph";
+            this.graph.Size = new System.Drawing.Size(1000, 300);
+            this.graph.TabIndex = 0;
+            this.graph.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1026, 322);
+            this.Controls.Add(this.graph);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.graph)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox graph;
     }
 }
 
