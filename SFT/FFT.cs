@@ -48,11 +48,11 @@ namespace SFT
 
                     Pen p = new Pen(Color.Red);
 
-                    System.Drawing.Point last = new System.Drawing.Point(0, 150);
+                    System.Drawing.Point last = new System.Drawing.Point(0, 300);
 
-                    for (int i = 0; i < samples.Length; i += 5)
+                    for (int i = 0; i <= 2000; i += 20)
                     {
-                        System.Drawing.Point cur = new System.Drawing.Point((int)(i / 2.5), (int)(((float)samples[i]) / 0xffff * 3000 + 150));
+                        System.Drawing.Point cur = new System.Drawing.Point((int)(i / 2), 290-Transform(samples, i));
                         g.DrawLine(p, last, cur);
                         last = cur;
                     }
@@ -74,8 +74,8 @@ namespace SFT
 
             foreach(int i in samples)
             {
-                v += new Vector(0, i).Rotate(ang);
-                ang = (ang + angMult) % 360;
+                v += new Vector(i, 0).Rotate(ang);
+                ang = ang + angMult;
             }
 
             v = v / samples.Length;
@@ -93,11 +93,7 @@ namespace SFT
             }
             else
             {
-                try
-                {
-                    graph.Image = new Bitmap(bmp);
-                }
-                catch { }
+                graph.Image = new Bitmap(bmp);
             }
         }
     }
@@ -116,7 +112,7 @@ namespace SFT
         {
             var ca = Math.Cos(radians);
             var sa = Math.Sin(radians);
-            return new Vector(ca * v.X - sa * v.Y, sa * v.X + ca * v.Y);
+            return new Vector(ca * v.X, sa * v.X);
         }
     }
 }
